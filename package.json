@@ -1,0 +1,27 @@
+{
+  "name": "testes-automatizados-nimitz-filt",
+  "version": "1.0.0",
+  "description": "Testes Automatizados do Projeto Nimitz/Filt",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run:chrome": "cypress run --browser chrome --headless",
+    "cypress:run:edge": "cypress run --browser edge --headless",
+    "cypress:ci": "cypress run",
+    "allure:generate": "allure generate %ALLURE_DIR%\\allure-results --clean -o %ALLURE_DIR%\\allure-report",
+    "allure:generate-history": "xcopy /E /I /Y %ALLURE_DIR%\\allure-report\\history\\* %ALLURE_DIR%\\allure-results\\history\\",
+    "allure:generate-all": "npm run allure:generate && npm run allure:generate-history"
+  },
+  "author": "Camila Moura",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "allure-cypress": "^3.0.6",
+    "cypress": "^13.14.2",
+    "cypress-on-fix": "^1.1.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/**"
+  }
+}
